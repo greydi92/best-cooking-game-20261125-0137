@@ -1,0 +1,88 @@
+/* Sizzle & Serve — page chrome around the canvas. The game itself draws
+   everything; this only centres the stage, warms the page behind it, and keeps
+   the footer readable on a desktop browser. No web fonts, no network. */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #241a10;
+  background-image:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 210, 62, 0.14), transparent 55%),
+    radial-gradient(ellipse at 50% 115%, rgba(229, 72, 77, 0.12), transparent 55%);
+  color: #f2e6cf;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 12px 12px;
+}
+
+#stage {
+  width: min(1280px, 100%);
+  line-height: 0;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 4px solid #4a3220;
+  border-radius: 14px;
+  background: #8a6a45;
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.55),
+    0 0 0 2px rgba(255, 210, 62, 0.25);
+  cursor: pointer;
+  image-rendering: auto;
+  outline: none;
+}
+
+#game:focus-visible {
+  border-color: #ffd23e;
+}
+
+#fallback {
+  display: none;
+  margin: 12px 0 0;
+  padding: 12px 16px;
+  line-height: 1.5;
+  background: #3a2d1f;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+#credits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  width: min(1280px, 100%);
+  padding: 2px 6px;
+  font-size: 13px;
+  color: #c9b18a;
+}
+
+#credits span:last-child {
+  color: #e8dcc8;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 8px 6px;
+  }
+
+  #credits {
+    font-size: 12px;
+  }
+}
